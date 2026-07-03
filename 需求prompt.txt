@@ -1,0 +1,110 @@
+【请扮演资深 Python 全栈工程师与 UI 专家，帮我生成一个轻量级电商网站项目】
+
+1. 架构与技术栈要求：
+
+后端：Python + FastAPI + Jinja2Templates（极轻量，无需连接数据库，数据直接写在内存字典里即可）。
+
+前端：HTML5 + Tailwind CSS (通过 CDN 引入) + 少量原生 JavaScript。
+
+部署目标：Vercel Serverless 环境（零成本部署）。
+
+2. 核心功能与页面需求：
+
+商品数据模型（Mock Data）：
+包含 4 款商品：
+
+Pro Neck Cooler (挂脖旗舰款)
+
+Handheld Ice Fan (手持主力款)
+
+Gaming Phone Cooler (电竞背夹款)
+
+Portable Mini AC (便携空调预留位)
+
+Homepage (首页 - index.html)：
+
+Hero Section：极简大字报风格，标题 "Beat the Heat. Instantly."
+
+商品列表展示区：展示 4 款商品的缩略图、名称、价格，并带有 "View Details" 按钮（跳转到详情页）。
+
+Product Detail Page (商品详情页 - detail.html)：
+
+多媒体展示区：左侧/上方需要一个占位区域，包含一段商品实测演示视频 (<video autoplay loop muted>)，以及下方的一组多图轮播/画廊 (Gallery) 缩略图占位符。
+
+详情描述区：右侧/下方展示商品名称、价格、核心卖点（如“半导体制冷”、“无刷静音”）。
+
+预定表单 (核心交互)：包含 Name, 数量选择。点击 "Reserve via WhatsApp" 或 "Reserve via Telegram" 后，用 JavaScript 拦截提交，提取商品名和数量，拼接成预设信息，通过 wa.me 或 t.me API 直接唤起通讯软件跳转。
+
+3. 视觉风格设计 (极度重要)：
+
+整体调性：极简、高端、充满科技感，类似顶级数码配件品牌（如 Apple 或 贝尔金）。
+
+UI 细节：背景使用“冰川白”或高级灰；卡片和按钮使用带有哑光质感 (Matte finish) 的细粒度阴影，避免廉价的高光和圆角过渡；字体使用现代无衬线字体 (如 Inter)。
+
+4. 交付要求 (请输出以下完整内容)：
+
+Step 1: 使用conda创建完整环境并配合给出requirements.txt
+
+Step 2: 输出清晰的项目目录树结构（需要符合 FastAPI 和 Jinja2 的标准）。
+
+Step 3: 创建完整的代码文件，包括 main.py, templates/index.html, templates/detail.html。请保持代码干净，并留出图片和视频的 src 占位符。
+
+后续: 结束之后配合我连接git然后 push上去，在Vercel或其他免费平台登陆
+
+
+
+
+所有文件已创建完毕。现在验证一下完整的目录结构：
+
+  Ran 1 shell command
+
+结构完整。现在按需求 Step 1，给你 conda 环境搭建指令：
+
+---
+Step 1 — 创建 conda 环境
+
+在终端运行（你可以用 ! <命令> 在当前会话执行）：
+
+conda create -n fanfan python=3.11 -y
+conda activate fanfan
+pip install -r requirements.txt
+# 本地启动开发服务器
+uvicorn main:app --reload
+# 访问 http://127.0.0.1:8000
+
+---
+Step 2 — 项目目录树
+
+fanfan/
+├── main.py                  ← FastAPI 应用
+├── requirements.txt
+├── vercel.json              ← Vercel 部署配置
+├── .gitignore
+├── templates/
+│   ├── index.html           ← 首页（Hero + 商品列表）
+│   └── detail.html          ← 商品详情页（视频 + Gallery + 预订表单）
+└── static/
+    ├── images/              ← 放商品图片（命名如 pro-neck-cooler.jpg）
+    └── videos/              ← 放演示视频（命名如 pro-neck-cooler-demo.mp4）
+
+---
+Step 3 — 代码说明
+
+┌───────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────┐
+│         文件          │                                           要点                                           │
+├───────────────────────┼─────────────────────────────────────────────────────────────┤
+│ main.py               │ 4 款商品 mock 数据存内存字典，两个路由：GET / 首页、GET /product/{id} 详情页             │
+├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ templates/index.html  │ Hero 大字报风格（ 卡片                                      │
+├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ templates/detail.html │ 左栏：<video autoplay loop muted> + 3 张 Gallery 缩略图；右栏：商品信息 +                │
+│                       │ 预订表单（WhatsApp / Telegram 各一键，JS 拼接消息后跳转 wa.me / t.me）                   │
+├───────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────┤
+│ vercel.json           │ @vercel/python 处理 FastAPI，@vercel/static 处理 /static/**                              │
+└───────────────────────┴─────────────────────────────────────────────────────────────┘
+
+使用前需修改 detail.html 底部两行配置：
+const WHATSAPP_NUMBER   = "YOUR_PHONE_NUMBER";      // 改成你的手机号（含国码，不含+）
+const TELEGRAM_USERNAME = "YOUR_TELEGRAM_USERNAME"; // 改成你的 Telegram 用户名
+
+图片/视频占位符：把文件放进 static/images/ 和 static/videos/，文件名对应 main.py 里的路径即可（如 pro-neck-cooler.jpg、pro-neck-cooler-demo.mp4）。
