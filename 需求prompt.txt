@@ -108,3 +108,8 @@ const WHATSAPP_NUMBER   = "YOUR_PHONE_NUMBER";      // 改成你的手机号（�
 const TELEGRAM_USERNAME = "YOUR_TELEGRAM_USERNAME"; // 改成你的 Telegram 用户名
 
 图片/视频占位符：把文件放进 static/images/ 和 static/videos/，文件名对应 main.py 里的路径即可（如 pro-neck-cooler.jpg、pro-neck-cooler-demo.mp4）。
+
+下一步你可以把 WhatsApp 号码和 Telegram 用户名填进 detail.html 里的这两行，然后 git push 自动触发 Vercel 重新部署：
+
+const WHATSAPP_NUMBER   = "YOUR_PHONE_NUMBER";
+const TELEGRAM_USERNAME = "YOUR_TELEGRAM_USERNAME";

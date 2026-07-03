@@ -17,6 +17,7 @@ PRODUCTS = {
         "price": 34.99,
         "badge_en": "Best Seller",
         "badge_fr": "Meilleure vente",
+        "stock": 20,
         "features_en": ["Semiconductor Cooling", "Brushless Silent Motor", "8-Hour Battery", "Dual Airflow"],
         "features_fr": ["Refroidissement semiconducteur", "Moteur silencieux sans balai", "8h d'autonomie", "Double flux d'air"],
         "description_en": (
@@ -45,6 +46,7 @@ PRODUCTS = {
         "price": 29.99,
         "badge_en": "Popular",
         "badge_fr": "Populaire",
+        "stock": 20,
         "features_en": ["Ice-Cold Airflow", "3-Speed Settings", "USB-C Charging", "Foldable Design"],
         "features_fr": ["Flux d'air glacé", "3 vitesses", "Charge USB-C", "Design pliable"],
         "description_en": (
@@ -72,6 +74,7 @@ PRODUCTS = {
         "price": 19.99,
         "badge_en": "New",
         "badge_fr": "Nouveau",
+        "stock": 20,
         "features_en": ["TEC Semiconductor Cooling", "RGB Lighting", "Fits 6–7\" Phones", "Plug & Play"],
         "features_fr": ["Refroidissement TEC", "Éclairage RGB", "Compatible 6–7 pouces", "Plug & Play"],
         "description_en": (
@@ -100,6 +103,7 @@ PRODUCTS = {
         "price": 329.99,
         "badge_en": "Coming Soon",
         "badge_fr": "Bientôt disponible",
+        "stock": 0,
         "features_en": ["Active Cooling", "Water-Cooled Heat Sink", "Silent Mode", "Portable Design"],
         "features_fr": ["Refroidissement actif", "Dissipateur thermique eau", "Mode silencieux", "Design portable"],
         "description_en": (

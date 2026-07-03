@@ -140,7 +140,16 @@
               {{ product.description_en }}
             </p>
             <div class="flex items-center justify-between pt-1">
-              <span class="text-xl font-bold text-slate-900">€{{ "%.2f" | format(product.price) }}</span>
+              <div>
+                <span class="text-xl font-bold text-slate-900">€{{ "%.2f" | format(product.price) }}</span>
+                {% if product.stock > 5 %}
+                <p class="text-xs text-emerald-600 font-medium mt-0.5"
+                   data-en="{{ product.stock }} in stock" data-fr="{{ product.stock }} en stock">{{ product.stock }} in stock</p>
+                {% elif product.stock > 0 %}
+                <p class="text-xs text-amber-500 font-medium mt-0.5"
+                   data-en="Only {{ product.stock }} left!" data-fr="Plus que {{ product.stock }} !">Only {{ product.stock }} left!</p>
+                {% endif %}
+              </div>
               <a href="/product/{{ product.id }}"
                  class="inline-flex items-center gap-1.5 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5
                         rounded-lg hover:bg-slate-700 transition-colors duration-150"
