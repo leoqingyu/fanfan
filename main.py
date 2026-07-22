@@ -43,7 +43,7 @@ PRODUCTS = {
         "name": "Handheld Ice Fan",
         "subtitle_en": "Handheld Essential",
         "subtitle_fr": "Essentiel portatif",
-        "price": 29.99,
+        "price": 25.99,
         "badge_en": "Popular",
         "badge_fr": "Populaire",
         "stock": 20,
@@ -74,7 +74,7 @@ PRODUCTS = {
         "price": 19.99,
         "badge_en": "New",
         "badge_fr": "Nouveau",
-        "stock": 20,
+        "stock": 15,
         "features_en": ["TEC Semiconductor Cooling", "RGB Lighting", "Fits 6–7\" Phones", "Plug & Play"],
         "features_fr": ["Refroidissement TEC", "Éclairage RGB", "Compatible 6–7 pouces", "Plug & Play"],
         "description_en": (
